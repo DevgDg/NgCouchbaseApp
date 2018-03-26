@@ -1,0 +1,16 @@
+<ActionBar title="{N} Angular">
+    <ActionItem text="Create" (tap)="create()" ios.position="right"></ActionItem>
+    <ActionItem text="Refresh" (tap)="refresh()" ios.position="right"></ActionItem>
+</ActionBar>
+<GridLayout>
+    <ListView [items]="personList" class="list-group">
+        <ng-template let-item="item">
+            <StackLayout>
+                <Label [text]="item._id" class="list-group-item"></Label>
+                <Label [text]="item.firstname + ' ' + item.lastname" class="list-group-item"></Label>
+                <Label text="edit" (tap)="updateItem(item._id)"></Label>
+                <Label text="delete" (tap)="deleteItem(item._id)"></Label>      
+            </StackLayout>
+        </ng-template>
+    </ListView>
+</GridLayout>
